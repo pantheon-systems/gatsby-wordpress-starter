@@ -1,7 +1,6 @@
 import React from 'react'
-import Paginator from '../components/paginator'
-
 import Layout from '../components/layout'
+import Paginator from '../components/paginator'
 import Seo from '../components/seo'
 
 const PaginationPostsExample = ({
@@ -23,7 +22,7 @@ const PaginationPostsExample = ({
 	}
 
 	return (
-		<Layout isHomePage>
+		<Layout>
 			<div className="prose max-w-screen mx-auto">
 				<section className="flex flex-col">
 					<h1 className="my-10">Pagination example</h1>

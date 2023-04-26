@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -22,9 +21,8 @@ const Post = ({
 			<Link className="font-normal" to="/posts">
 				Posts &rarr;
 			</Link>
-
-			<div className="mt-12 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-screen-lg">
-				{imageData.gatsbyImage && (
+			<div className="mt-12 max-w-lg mx-auto lg:max-w-screen-lg">
+				{imageData.gatsbyImage ? (
 					<div className="relative w-full rounded-lg shadow-lg overflow-hidden mb-10">
 						<GatsbyImage
 							priority="true"
@@ -34,7 +32,7 @@ const Post = ({
 							alt={imageData.altText}
 						/>
 					</div>
-				)}
+				) : null}
 			</div>
 
 			{content ? (
@@ -45,23 +43,24 @@ const Post = ({
 			) : (
 				<p>Sorry, no page data was found at this route.</p>
 			)}
-
 			<hr className="mt-10" />
-
 			<nav className="flex flex-wrap px-6">
-				{previous && (
-					<Link className="underline font-medium" to={`/posts${previous.uri}`}>
+				{previous ? (
+					<Link 
+						className="underline font-medium" 
+						to={`/posts${previous.uri}`}
+					>
 						← {previous.title}
 					</Link>
-				)}
-				{next && (
+				) : null}
+				{next ? (
 					<Link
 						className="underline font-medium ml-auto"
 						to={`/posts${next.uri}`}
 					>
 						{next.title} →
 					</Link>
-				)}
+				) : null}
 			</nav>
 		</article>
 	)

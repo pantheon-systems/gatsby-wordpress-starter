@@ -82,9 +82,12 @@ const Paginator = ({
 	const [windowWidth, setWindowWidth] = useState()
 	useEffect(() => {
 		setWindowWidth(window.innerWidth)
-		window.addEventListener('resize', () => {
+		const eventListener = window.addEventListener('resize', () => {
 			setWindowWidth(window.innerWidth)
 		})
+				return () => {
+			window.removeEventListener('resize', eventListener);
+		}; 
 	}, [])
 
 	const handlePageClick = event => {
@@ -121,8 +124,8 @@ const Paginator = ({
 
 		// Create link given the number of
 		// total pages
-		for (let i = 0; i < totalPages; i++) {
-			const pageNumber = Number(i + 1)
+		for (let i = 1; i <= totalPages; i++) {
+			const pageNumber = i
 			const defaultLink = (
 				<Link
 					to={`${navRoute}${routing ? '/' + pageNumber : ''}`}
@@ -132,10 +135,10 @@ const Paginator = ({
 						handlePageClick(event)
 					}}
 					className={`flex flex-col justify-center text-center no-underline
-          h-16 w-12 border-t-2 border-b-2 border-black bg-white hover:bg-blue-300 focus:bg-blue-200 focus:border-blue-300 ${
+					h-16 w-12 border-t-2 border-b-2 border-black bg-white hover:bg-blue-300 focus:bg-blue-200 focus:border-blue-300 ${
 						currentPageQuery === pageNumber && 'border-blue-700 border-2'
 					}
-          `}
+					`}
 					aria-label={
 						currentPageQuery === pageNumber
 							? `Current Page, Page ${pageNumber}`
@@ -148,7 +151,7 @@ const Paginator = ({
 			)
 
 			// separator link
-			if (i === breakStart) {
+			if (pageNumber === breakStart) {
 				if (breakStart + breakAdd >= totalPages) {
 					links.push(defaultLink)
 					continue
@@ -182,6 +185,7 @@ const Paginator = ({
 		}
 		const backActive = offset === 0 ? false : true
 		const nextActive = offset >= totalItems - itemsPerPage ? false : true
+
 		const sharedNextAndBackBtnStyles =
 			'flex flex-col justify-center text-center h-16 w-12 no-underline hover:bg-blue-300 focus:bg-blue-200 focus:border-blue-300 border-t-2 border-b-2 border-black bg-white'
 		// returns the row of links

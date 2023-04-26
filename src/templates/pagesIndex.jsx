@@ -1,22 +1,19 @@
 import React from 'react'
-
 import Layout from '../components/layout'
-import Seo from '../components/seo'
-import { PageGridItem, withGrid } from '../components/grid'
+import { PageGrid } from '../components/grid'
 import Paginator from '../components/paginator'
+import Seo from '../components/seo'
 
 const PageIndexTemplate = ({
 	pageContext: { itemsPerPage, routing, pages },
 	location,
 }) => {
-	const PageGrid = withGrid(PageGridItem)
-
 	const RenderCurrentItems = ({ currentItems }) => {
-		return <PageGrid data={currentItems} />
+		return <PageGrid data={currentItems} contentType="pages" />
 	}
 
 	return (
-		<Layout isHomePage>
+		<Layout>
 			<header className="prose text-2xl mx-auto mt-20">
 				<h1 className="text-center mx-auto">Pages</h1>
 			</header>

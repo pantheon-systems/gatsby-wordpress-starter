@@ -23,12 +23,12 @@ const AuthApiExampleTemplate = ({ pageContext: { privatePosts } }) => {
 							<p>
 								Gatsby was unable to make an authorized request to the WordPress
 								API. Please check your .env.development.local file to ensure
-								that your <code>WP_APPLICATION_USERNAME</code> and
+								that your <code>WP_APPLICATION_USERNAME</code> and{' '}
 								<code>WP_APPLICATION_PASSWORD</code> are set correctly.
 							</p>
 							<p>
 								For more information on how to set these values, please see{' '}
-								<a href="https://github.com/pantheon-systems/decoupled-kit-js/blob/canary/web/docs/Frontend%20Starters/Gatsby/Gatsby%20%2B%20WordPress/setting-environment-variables.md">
+								<a href="https://decoupledkit.pantheon.io/docs/frontend-starters/gatsby/gatsby-wordpress/setting-environment-variables">
 									Setting Environment Variables
 								</a>
 							</p>

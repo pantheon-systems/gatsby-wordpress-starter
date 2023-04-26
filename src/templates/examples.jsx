@@ -7,11 +7,9 @@ const ExamplesPageTemplate = ({ footerMenu, pageContext: { routing } }) => {
 		<Layout footerMenu={footerMenu}>
 			<div className="prose lg:prose-xl mt-10 flex flex-col mx-auto max-h-screen">
 				<h1>Examples</h1>
-
 				<Link to="/">
 					<span className="w-full underline cursor-pointer">Home &rarr;</span>
 				</Link>
-
 				<div className="max-w-lg mx-auto lg:grid-cols-3 lg:max-w-screen-lg">
 					<p>
 						This page outlines a growing list of common use cases that can be

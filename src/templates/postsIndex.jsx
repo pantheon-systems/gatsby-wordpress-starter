@@ -1,18 +1,15 @@
 import React from 'react'
-
 import Layout from '../components/layout'
-import Seo from '../components/seo'
-import { withGrid, PostGridItem } from '../components/grid'
+import { PostGrid } from '../components/grid'
 import Paginator from '../components/paginator'
+import Seo from '../components/seo'
 
 const PostIndexTemplate = ({
 	pageContext: { posts, routing, itemsPerPage },
 	location,
 }) => {
-	const PostGrid = withGrid(PostGridItem)
-
 	const RenderCurrentItems = ({ currentItems }) => {
-		return <PostGrid data={currentItems} />
+		return <PostGrid data={currentItems} contentType="posts" />
 	}
 
 	return (

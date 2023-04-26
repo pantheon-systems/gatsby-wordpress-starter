@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -8,6 +7,12 @@ const Page = ({
 	next,
 	previous,
 }) => {
+	const imageData = {
+		gatsbyImage:
+			featuredImage?.node?.localFile?.childImageSharp.gatsbyImageData,
+		altText: featuredImage?.node?.altText || title,
+	}
+
 	return (
 		<article className="prose lg:prose-xl mt-10 mx-auto">
 			<h1>{title}</h1>
@@ -22,12 +27,10 @@ const Page = ({
 					<div className="relative w-full rounded-lg shadow-lg overflow-hidden mb-10">
 						<GatsbyImage
 							priority
-							image={
-								featuredImage.node.localFile.childImageSharp.gatsbyImageData
-							}
+							image={imageData.gatsbyImage}
 							layout="fill"
 							objectFit="cover"
-							alt={featuredImage.node.altText || title}
+							alt={imageData.altText}
 						/>
 					</div>
 				)}
@@ -41,9 +44,7 @@ const Page = ({
 			) : (
 				<p>Sorry, no page data was found at this route.</p>
 			)}
-
 			<hr className="mt-10" />
-
 			<nav className="flex flex-wrap px-6">
 				{previous && (
 					<Link className="underline font-medium" to={`/pages${previous.uri}`}>
