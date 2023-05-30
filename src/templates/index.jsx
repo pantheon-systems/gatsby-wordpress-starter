@@ -1,31 +1,29 @@
-import React from 'react'
-import { withPrefix } from 'gatsby'
-import Layout from '../components/layout'
+import { Link, withPrefix } from 'gatsby'
 import { PostGrid } from '../components/grid'
+import Layout from '../components/layout'
 import Seo from '../components/seo'
+import * as styles from './index.module.css'
 
 const PageHeader = () => (
-	<div className="prose sm:prose-xl mt-20 flex flex-col mx-auto max-w-fit">
-		<h1 className="prose text-4xl text-center h-full">
+	<div className={styles.header}>
+		<h1 className={`${styles.headerTitle} font-extrabold`}>
 			Welcome to{' '}
-			<a
-				className="text-purple-600 no-underline hover:underline"
-				href="https://www.gatsbyjs.com/"
+			<Link
+				className={`${styles.gatsby} text-purple-600 font-medium no-underline`}
+				to="https://www.gatsbyjs.com/"
 			>
 				Gatsby!
-			</a>
+			</Link>
 		</h1>
 
-		<div className="text-2xl">
-			<div className="not-prose bg-black text-white rounded flex items-center justify-center p-4">
-				<span>Decoupled WordPress on </span>
-				<img
-					src={withPrefix('pantheon.png')}
-					alt="Pantheon Logo"
-					width={191}
-					height={60}
-				/>
-			</div>
+		<div className={styles.onPantheon}>
+			<span>Decoupled WordPress on </span>
+			<img
+				src={withPrefix('pantheon.png')}
+				alt="Pantheon Logo"
+				width={191}
+				height={60}
+			/>
 		</div>
 	</div>
 )

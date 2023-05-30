@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import * as styles from './footer.module.css'
 
 const Footer = () => {
 	const menuQuery = useStaticQuery(graphql`
@@ -21,18 +21,15 @@ const Footer = () => {
 		: []
 
 	const FooterMenu = () => (
-		<nav className="flex flex-col max-w-lg mx-auto lg:max-w-screen-lg">
-			<ul>
+		<nav className={`${styles.footerNav} flex flex-col mx-auto`}>
+			<ul className="mt-4">
 				{nodes.map(({ id, label, path }, i) => {
 					return (
 						<li
 							key={id + i}
-							className="ml-3 list-disc text-blue-300 hover:text-blue-100"
+							className={`${styles.navItem} text-blue-300 list-disc ml-3`}
 						>
-							<Link
-								className="text-blue-300 hover:text-blue-100 focus:text-purple-600 active:text-purple-300 "
-								to={`/posts${path}`}
-							>
+							<Link className="text-blue-300 no-underline" to={`/posts${path}`}>
 								{label}
 							</Link>
 						</li>
@@ -43,22 +40,18 @@ const Footer = () => {
 	)
 
 	return (
-		<footer className="w-full text-white bg-black p-4 mt-12">
+		<footer
+			className={`${styles.footer} bg-black flex flex-col justify-self-end mt-12`}
+		>
 			<FooterMenu />
-			<div className="flex my-4 p-2">
-				<span className="mx-auto">
+			<div className={`${styles.footerCopy} text-white my-4 mx-auto p-2`}>
+				<span>
 					© {new Date().getFullYear()} Built with{' '}
-					<a
-						className="text-purple-300 underline hover:text-blue-100"
-						href="https://www.gatsbyjs.com"
-					>
+					<a className="underline" href="https://www.gatsbyjs.com">
 						Gatsby
 					</a>{' '}
 					and{' '}
-					<a
-						className="text-blue-200 underline hover:text-blue-100"
-						href="https://wordpress.org/"
-					>
+					<a className="underline" href="https://wordpress.org/">
 						WordPress
 					</a>
 				</span>

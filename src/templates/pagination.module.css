@@ -1,0 +1,29 @@
+.container {
+	@apply my-0 mx-auto max-w-screen-sm;
+	height: inherit;
+}
+
+.content {
+	height: inherit;
+}
+
+.title {
+	font-size: 2.25rem;
+	justify-self: flex-start;
+}
+
+.item {
+	font-size: 1.25rem;
+}
+
+.itemTitle {
+	font-size: 1.75rem;
+	justify-content: start;
+}
+
+/* md breakpoint*/
+@media (max-width: 768px) {
+	.container {
+		@apply m-0;
+	}
+}

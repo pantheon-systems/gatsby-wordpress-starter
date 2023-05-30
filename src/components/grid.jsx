@@ -1,22 +1,21 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import * as styles from './grid.module.css'
 
-const GradientPlaceholder = () => (
-	<div className="w-full h-full bg-gradient-to-b from-blue-100 to-blue-500" />
-)
+const GradientPlaceholder = () => <div className={styles.gradientPlaceholder} />
+
 const withGrid = Component => {
 	const GridedComponent = ({ data, ...props }) => {
 		if (!data || !data.length) {
 			return props.contentType ? (
-				<h2 className="text-xl text-center mt-14">
+				<h2 className={`${styles.notFound} mt-14 text-center`}>
 					No {props.contentType} found 🏜
 				</h2>
 			) : null
 		}
 
 		return (
-			<div className="mt-12 grid gap-5 max-w-content mx-auto lg:grid-cols-3 lg:max-w-screen-lg">
+			<div className={styles.container}>
 				{data.map((content, i) => {
 					return <Component key={i} content={content} {...props} />
 				})}
@@ -31,13 +30,13 @@ const GridItem = ({ href, imgSrc, altText, title }) => {
 	return (
 		<Link
 			to={href}
-			className="flex flex-col rounded-lg shadow-lg overflow-hidden cursor-pointer border-2 h-full hover:border-indigo-500"
+			className={`${styles.card} rounded-lg cursor-pointer overflow-x-hidden no-underline`}
 		>
-			<div className="flex-shrink-0 relative h-40">
+			<div className="shrink-0 h-40 relative">
 				{imgSrc ? (
 					<GatsbyImage
 						image={imgSrc}
-						className="h-full w-full"
+						style={{ height: '100%', width: '100%' }}
 						objectFit="fit"
 						alt={altText}
 					/>
@@ -45,7 +44,7 @@ const GridItem = ({ href, imgSrc, altText, title }) => {
 					<GradientPlaceholder />
 				)}
 			</div>
-			<h2 className="my-4 mx-6 text-xl leading-7 font-semibold text-gray-900">
+			<h2 className={`${styles.cardTitle} font-semibold my-5 mx-4`}>
 				{title} &rarr;
 			</h2>
 		</Link>

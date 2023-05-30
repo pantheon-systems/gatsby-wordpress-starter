@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
+import { useEffect, useState } from 'react'
+import * as styles from './paginator.module.css'
 
 /**
  *
@@ -134,11 +134,7 @@ const Paginator = ({
 					onClick={function (event) {
 						handlePageClick(event)
 					}}
-					className={`flex flex-col justify-center text-center no-underline
-					h-16 w-12 border-t-2 border-b-2 border-black bg-white hover:bg-blue-300 focus:bg-blue-200 focus:border-blue-300 ${
-						currentPageQuery === pageNumber && 'border-blue-700 border-2'
-					}
-					`}
+					className={`${styles.paginatorBtn} bg-white border-black text-black flex flex-col h-16 justify-center text-center no-underline w-12`}
 					aria-label={
 						currentPageQuery === pageNumber
 							? `Current Page, Page ${pageNumber}`
@@ -158,7 +154,7 @@ const Paginator = ({
 				}
 				links.push(
 					<button
-						className={`hidden md:block h-16 w-12 border-2 border-black bg-slate-200 hover:bg-blue-300 focus:bg-blue-200 focus:border-blue-300`}
+						className={styles.separatorBtn}
 						onClick={function () {
 							setBreakStart(breakStart + breakAdd)
 							setBreakpointsOpen(true)
@@ -186,13 +182,12 @@ const Paginator = ({
 		const backActive = offset === 0 ? false : true
 		const nextActive = offset >= totalItems - itemsPerPage ? false : true
 
-		const sharedNextAndBackBtnStyles =
-			'flex flex-col justify-center text-center h-16 w-12 no-underline hover:bg-blue-300 focus:bg-blue-200 focus:border-blue-300 border-t-2 border-b-2 border-black bg-white'
+		const sharedNextAndBackBtnStyles = `${styles.directionalBtns} bg-white border-black text-black flex flex-col h-16 justify-center text-center no-underline w-12`
 		// returns the row of links
 		return (
 			<nav role="navigation" aria-label="Pagination Navigation">
 				<ul
-					className="list-none flex flex-row justify-center mx-auto mt-auto mb-4 [&>li]:p-0"
+					className={`${styles.btnList} self-start flex flex-row justify-center list-none mb-0 mx-auto mt-auto p-0`}
 					data-testid={`link-wrapper ${nextActive} ${backActive}`}
 				>
 					<li key="back">
@@ -204,9 +199,7 @@ const Paginator = ({
 									: `${location.pathname}`
 							}
 							state={{ breakOpen: breakpointsOpen }}
-							className={`${sharedNextAndBackBtnStyles} ${
-								backActive ? '' : 'bg-gray-500'
-							}  border-l-2`}
+							className={sharedNextAndBackBtnStyles}
 							id="back-btn"
 							onClick={handlePageClick}
 							aria-label="Go to Previous Page"
@@ -227,9 +220,7 @@ const Paginator = ({
 									: `${location.pathname}`
 							}
 							state={{ breakOpen: breakpointsOpen }}
-							className={`${sharedNextAndBackBtnStyles} ${
-								nextActive ? '' : 'bg-gray-500'
-							} border-r-2`}
+							className={sharedNextAndBackBtnStyles}
 							id="next-btn"
 							onClick={handlePageClick}
 							aria-label="Go to Next Page"
@@ -242,8 +233,8 @@ const Paginator = ({
 		)
 	}
 	return (
-		<div className="max-w-full">
-			<span className="mb-8 prose-sm font-bold">
+		<div>
+			<span className={`${styles.pageCount} text-gray-700 font-semibold`}>
 				Page {currentPageQuery}/{totalPages}
 			</span>
 
@@ -251,7 +242,7 @@ const Paginator = ({
 				{/* Component passed in that will render the data */}
 				<Component currentItems={currentItems} />
 			</section>
-			<div className="sticky lg:bottom-12 bottom-4 mt-10">
+			<div className={styles.btnContainer}>
 				<RenderLinks />
 			</div>
 		</div>

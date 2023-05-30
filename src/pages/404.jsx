@@ -1,4 +1,3 @@
-import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -8,7 +7,7 @@ const NotFoundPage = ({ data, location }) => {
 
 	return (
 		<Layout location={location} title={siteTitle}>
-			<div className="flex flex-col mx-auto text-xl prose text-center mt-12">
+			<div className="flex max-w-screen-sm">
 				<h2>404: Could not find the requested page</h2>
 			</div>
 		</Layout>

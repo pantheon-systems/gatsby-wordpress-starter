@@ -1,7 +1,7 @@
-import React from 'react'
 import Layout from '../components/layout'
 import Paginator from '../components/paginator'
 import Seo from '../components/seo'
+import * as styles from './pagination.module.css'
 
 const PaginationPostsExample = ({
 	pageContext: { pagPosts, postsPerPage, routing, breakpoints },
@@ -10,12 +10,12 @@ const PaginationPostsExample = ({
 	const RenderCurrentItems = ({ currentItems }) => {
 		return currentItems.map(item => {
 			return (
-				<article key={item.title} className="flex flex-col p-3 mb-10">
-					<h2 className="justify-start my-auto text-2xl mb-2">{item.title}</h2>
-					<div
-						className="max-w-prose my-2 [&>p]:my-0"
-						dangerouslySetInnerHTML={{ __html: item.excerpt }}
-					/>
+				<article
+					key={item.title}
+					className={`${styles.item} flex flex-col leading-8 mb-10 p-3`}
+				>
+					<h2 className={`${styles.itemTitle} font-bold mb-2`}>{item.title}</h2>
+					<div dangerouslySetInnerHTML={{ __html: item.excerpt }} />
 				</article>
 			)
 		})
@@ -23,9 +23,11 @@ const PaginationPostsExample = ({
 
 	return (
 		<Layout>
-			<div className="prose max-w-screen mx-auto">
-				<section className="flex flex-col">
-					<h1 className="my-10">Pagination example</h1>
+			<div className={styles.container}>
+				<section className={styles.content}>
+					<h1 className={`${styles.title} font-extrabold my-10 mx-0`}>
+						Pagination example
+					</h1>
 					<Paginator
 						data={pagPosts}
 						itemsPerPage={postsPerPage}

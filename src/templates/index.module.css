@@ -1,0 +1,31 @@
+.header {
+	@apply flex flex-col mb-0 mx-auto mt-20 max-w-fit text-center;
+}
+
+.headerTitle {
+	font-size: 3.5rem;
+}
+
+.gatsby:hover {
+	@apply underline;
+}
+
+.onPantheon {
+	@apply items-center bg-black rounded text-white flex flex-row font-normal mt-8 w-fit;
+	font-size: 1.5rem;
+	padding: 1rem 1.75rem;
+}
+
+/* sm breakpoint */
+@media (max-width: 320px) {
+	.onPantheon {
+		@apply flex-col my-0 mx-auto;
+	}
+}
+
+/* lg breakpoint */
+@media (max-width: 1024px) {
+	.header {
+		font-size: 1.25rem;
+	}
+}

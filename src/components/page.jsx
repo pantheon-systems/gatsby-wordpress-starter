@@ -1,6 +1,6 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import * as styles from './page.module.css'
 
 const Page = ({
 	page: { title, date, featuredImage, content },
@@ -14,20 +14,21 @@ const Page = ({
 	}
 
 	return (
-		<article className="prose lg:prose-xl mt-10 mx-auto">
-			<h1>{title}</h1>
-			<p className="text-sm text-gray-600">{new Date(date).toDateString()}</p>
-
-			<Link className="font-normal" to="/pages">
+		<article className={styles.container}>
+			<h1 className={`${styles.mainTitle} font-extrabold mb-10`}>{title}</h1>
+			<p className={`${styles.date} text-gray-600 leading-8`}>
+				{new Date(date).toDateString()}
+			</p>
+			<Link className={styles.link} to="/pages">
 				Pages &rarr;
 			</Link>
-
-			<div className="mt-12 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-screen-lg">
+			<div className={styles.content}>
 				{featuredImage && (
-					<div className="relative w-full rounded-lg shadow-lg overflow-hidden mb-10">
+					<div>
 						<GatsbyImage
+							className="rounded-lg"
 							priority
-							image={imageData.gatsbyImage}
+							image={imageData.featuredImage}
 							layout="fill"
 							objectFit="cover"
 							alt={imageData.altText}
@@ -35,30 +36,26 @@ const Page = ({
 					</div>
 				)}
 			</div>
-
 			{content ? (
 				<div
-					className="break-words mt-12"
+					className={styles.paragraphContent}
 					dangerouslySetInnerHTML={{ __html: content }}
 				/>
 			) : (
 				<p>Sorry, no page data was found at this route.</p>
 			)}
-			<hr className="mt-10" />
+			<hr className="my-10 mx-0 opacity-30 w-full" />
 			<nav className="flex flex-wrap px-6">
-				{previous && (
-					<Link className="underline font-medium" to={`/pages${previous.uri}`}>
+				{previous ? (
+					<Link className={styles.next} to={`/pages${previous.uri}`}>
 						← {previous.title}
 					</Link>
-				)}
-				{next && (
-					<Link
-						className="underline font-medium ml-auto"
-						to={`/pages${next.uri}`}
-					>
+				) : null}
+				{next ? (
+					<Link className={styles.prev} to={`/pages${next.uri}`}>
 						{next.title} →
 					</Link>
-				)}
+				) : null}
 			</nav>
 		</article>
 	)

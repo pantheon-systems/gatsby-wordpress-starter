@@ -1,0 +1,33 @@
+.layout {
+	height: inherit;
+	width: inherit;
+}
+
+.navLinks {
+	font-size: 1.25rem;
+	padding: 1.25rem 2.5rem 0;
+}
+
+.navLinks > li:first-child {
+	@apply mr-auto;
+}
+
+.navLinks :not(li:first-child) > a {
+	@apply my-0 mx-4;
+	justify-self: flex-end;
+}
+
+.navLinks a:hover {
+	@apply underline;
+}
+
+.layoutMain {
+	@apply mb-auto mx-auto mt-0;
+}
+
+/* lg breakpoint*/
+@media (max-width: 1024px) {
+	.layoutMain {
+		@apply mb-auto mx-0 mt-0;
+	}
+}

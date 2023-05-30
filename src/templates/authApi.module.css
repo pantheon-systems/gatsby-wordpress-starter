@@ -1,0 +1,29 @@
+.container {
+	@apply leading-8 mb-0 mx-auto mt-10 max-w-screen-md;
+}
+
+.containerTitle {
+	@apply font-extrabold mb-12;
+	font-size: 3rem;
+}
+
+.container > a, .container > * a {
+	@apply text-black font-medium underline;
+	font-size: 1.25rem;
+}
+
+.content > p {
+	@apply mt-12;
+	font-size: 1.25rem;
+}
+
+/* lg breakpoint */
+@media (max-width: 1024px) {
+	.container {
+		@apply max-w-screen-sm;
+	}
+
+	.containerTitle {
+		font-size: 2rem
+	}
+}

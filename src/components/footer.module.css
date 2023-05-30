@@ -1,0 +1,21 @@
+.footer > * a:hover,
+.footer > * a:first-child:hover,
+.footer > * a:last-child:hover {
+	@apply text-blue-100;
+}
+
+.footerNav {
+	min-width: 1024px;
+}
+
+.navItem:hover {
+	@apply text-blue-100;
+}
+
+.footerCopy > * a:first-child {
+	@apply text-purple-300;
+}
+
+.footerCopy > * a:last-child {
+	@apply text-blue-200;
+}

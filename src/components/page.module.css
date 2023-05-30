@@ -1,0 +1,54 @@
+.container {
+	@apply mb-0 mx-auto mt-12 max-w-screen-lg;
+	min-width: 768px;
+}
+
+.mainTitle {
+	font-size: 3.5rem;
+}
+
+.link {
+	@apply text-black underline;
+	font-size: 1.25rem;
+}
+
+.date {
+	font-size: 0.75rem;
+}
+
+.content, .paragraphContent {
+	@apply mt-12;
+}
+
+.paragraphContent {
+	@apply prose leading-8 break-words;
+	font-size: 1.25rem;
+}
+
+.link, .prev, .next {
+	@apply text-black underline;
+	font-size: 1.25rem;
+}
+
+.prev, .next {
+	@apply font-medium;
+}
+
+.next {
+	@apply ml-auto;
+}
+
+.prev {
+	@apply mr-auto;
+}
+
+/* lg breakpoint */
+@media (max-width: 1024px) {
+	.container {
+		@apply max-w-screen-md p-4;
+	}
+
+	.containerTitle {
+		font-size: 2.25rem;
+	}
+}

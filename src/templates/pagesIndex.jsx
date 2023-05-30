@@ -1,8 +1,8 @@
-import React from 'react'
-import Layout from '../components/layout'
 import { PageGrid } from '../components/grid'
+import Layout from '../components/layout'
 import Paginator from '../components/paginator'
 import Seo from '../components/seo'
+import * as styles from './pagesOrPostsIndex.module.css'
 
 const PageIndexTemplate = ({
 	pageContext: { itemsPerPage, routing, pages },
@@ -14,10 +14,10 @@ const PageIndexTemplate = ({
 
 	return (
 		<Layout>
-			<header className="prose text-2xl mx-auto mt-20">
-				<h1 className="text-center mx-auto">Pages</h1>
+			<header className="mt-12 text-center">
+				<h1 className={`${styles.headerTitle} font-extrabold`}>Pages</h1>
 			</header>
-			<div className="max-w-screen-lg mx-auto">
+			<div>
 				<section>
 					<Paginator
 						data={pages}

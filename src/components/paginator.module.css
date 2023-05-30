@@ -1,0 +1,67 @@
+.pageCount {
+	font-size: 1rem;
+}
+
+.btnContainer {
+	@apply bottom-4 sticky;
+}
+
+.btnList > li * {
+	@apply p-0;
+}
+
+.paginatorBtn,
+.directionalBtns {
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+}
+
+.separatorBtn {
+	@apply bg-slate-200 border-black h-full w-12;
+	border: 2px solid;
+}
+
+.paginatorBtn[aria-label^='Current Page'] {
+	border: 2px solid #1d4ed8;
+}
+
+.paginatorBtn:hover,
+.directionalBtns:hover,
+.separatorBtn:hover {
+	@apply bg-blue-300;
+}
+
+.paginatorBtn:focus,
+.directionalBtns:focus,
+.separatorBtn:focus {
+	@apply bg-blue-300 border-blue-300;
+}
+
+.paginatorBtn:active,
+.paginatorBtn:visited,
+.directionalBtns:active,
+.directionalBtns:focus {
+	@apply text-inherit;
+}
+
+.directionalBtns[aria-label$='Previous Page'] {
+	border-left: 2px solid;
+}
+
+.directionalBtns[aria-label$='Next Page'] {
+	border-right: 2px solid;
+}
+
+/* lg breakpoint*/
+@media (max-width: 1024px) {
+	.btnContainer {
+		@apply bottom-12;
+	}
+}
+
+/* md breakpoint*/
+@media (max-width: 768px) {
+	.separatorBtn {
+		@apply hidden;
+	}
+}

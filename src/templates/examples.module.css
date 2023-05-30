@@ -1,0 +1,21 @@
+.containerTitle {
+	font-size: 3.5rem;
+}
+
+.container > a {
+	@apply text-black;
+	font-size: 1.25rem;
+}
+
+.content {
+	font-size: 1.25rem;
+}
+
+.content > a {
+	@apply mb-8;
+	display: inherit;
+}
+
+.content > a, .list > * a {
+	@apply text-black font-medium underline;
+}
