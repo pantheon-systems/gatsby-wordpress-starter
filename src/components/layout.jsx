@@ -4,7 +4,10 @@ import Footer from './footer'
 
 const Layout = ({ isHomePage, children }) => {
 	return (
-		<div className="min-h-screen max-h-screen min-w-screen max-w-screen flex flex-col" data-is-root-path={isHomePage}>
+		<div
+			className="min-h-screen max-h-screen min-w-screen max-w-screen flex flex-col"
+			data-is-root-path={isHomePage}
+		>
 			<nav className="my-0 pt-10 px-5 text-xl">
 				<ul className="flex flex-row flex-wrap sm:flex-nowrap list-none justify-between max-w-screen-sm mx-auto">
 					{[
@@ -13,8 +16,13 @@ const Layout = ({ isHomePage, children }) => {
 						['📑 Pages', '/pages'],
 						['⚛️ Examples', '/examples'],
 					].map(([title, href], i) => (
-						<li className={`${href === '/' ? 'mr-auto' : 'mx-4'}`} key={`key-${i}`}>
-							<Link className="font-sans hover:underline" to={href}>{title}</Link>
+						<li
+							className={`${href === '/' ? 'mr-auto' : 'mx-4'}`}
+							key={`key-${i}`}
+						>
+							<Link className="font-sans hover:underline" to={href}>
+								{title}
+							</Link>
 						</li>
 					))}
 				</ul>

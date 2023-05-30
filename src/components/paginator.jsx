@@ -85,9 +85,9 @@ const Paginator = ({
 		const eventListener = window.addEventListener('resize', () => {
 			setWindowWidth(window.innerWidth)
 		})
-				return () => {
-			window.removeEventListener('resize', eventListener);
-		}; 
+		return () => {
+			window.removeEventListener('resize', eventListener)
+		}
 	}, [])
 
 	const handlePageClick = event => {

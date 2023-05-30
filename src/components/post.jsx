@@ -46,10 +46,7 @@ const Post = ({
 			<hr className="mt-10" />
 			<nav className="flex flex-wrap px-6">
 				{previous ? (
-					<Link 
-						className="underline font-medium" 
-						to={`/posts${previous.uri}`}
-					>
+					<Link className="underline font-medium" to={`/posts${previous.uri}`}>
 						← {previous.title}
 					</Link>
 				) : null}

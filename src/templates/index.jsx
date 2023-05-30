@@ -18,14 +18,14 @@ const PageHeader = () => (
 
 		<div className="text-2xl">
 			<div className="not-prose bg-black text-white rounded flex items-center justify-center p-4">
-				<span>Decoupled WordPress on{' '}</span>
+				<span>Decoupled WordPress on </span>
 				<img
 					src={withPrefix('pantheon.png')}
 					alt="Pantheon Logo"
 					width={191}
 					height={60}
 				/>
-		</div>
+			</div>
 		</div>
 	</div>
 )
