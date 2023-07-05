@@ -50,7 +50,7 @@
 		"@babel/core": "^7.21.4",
 		"@pantheon-systems/decoupled-kit-configs": "0.1.0",
 		"@pantheon-systems/eslint-config-decoupled-kit": "0.1.1",
-		"@pantheon-systems/wordpress-kit": "3.0.0",
+		"@pantheon-systems/wordpress-kit": "3.1.0",
 		"@testing-library/react": "13.4.0",
 		"@typescript-eslint/eslint-plugin": "^5.13.0",
 		"@typescript-eslint/parser": ">=5.49.0",
