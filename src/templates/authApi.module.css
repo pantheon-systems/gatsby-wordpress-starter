@@ -7,13 +7,11 @@
 	font-size: 3rem;
 }
 
-.container > a, .container > * a {
-	@apply text-black font-medium underline;
+.link {
 	font-size: 1.25rem;
 }
 
-.content > p {
-	@apply mt-12;
+.paragraph {
 	font-size: 1.25rem;
 }
 
@@ -24,6 +22,6 @@
 	}
 
 	.containerTitle {
-		font-size: 2rem
+		font-size: 2rem;
 	}
 }

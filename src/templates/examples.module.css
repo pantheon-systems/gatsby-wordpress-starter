@@ -2,8 +2,7 @@
 	font-size: 3.5rem;
 }
 
-.container > a {
-	@apply text-black;
+.link {
 	font-size: 1.25rem;
 }
 
@@ -16,6 +15,7 @@
 	display: inherit;
 }
 
-.content > a, .list > * a {
+.content > a,
+.list > * a {
 	@apply text-black font-medium underline;
 }

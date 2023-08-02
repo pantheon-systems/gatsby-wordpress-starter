@@ -1,6 +1,7 @@
 .container {
 	@apply my-0 mx-auto max-w-screen-sm;
 	height: inherit;
+	min-height: 80vh;
 }
 
 .content {
