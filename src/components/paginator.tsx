@@ -195,7 +195,7 @@ const Paginator = <DataType,>({
 								backActive
 									? `${navRoute}${
 											routing ? '/' + String(currentPageQuery - 1) : ''
-									  }`
+										}`
 									: `${location.pathname}`
 							}
 							state={{ breakOpen: breakpointsOpen }}
@@ -218,7 +218,7 @@ const Paginator = <DataType,>({
 								nextActive
 									? `${navRoute}${
 											routing ? '/' + String(currentPageQuery + 1) : ''
-									  }`
+										}`
 									: `${location.pathname}`
 							}
 							state={{ breakOpen: breakpointsOpen }}
